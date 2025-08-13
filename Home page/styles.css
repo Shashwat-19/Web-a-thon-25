@@ -7,7 +7,7 @@ body {
     background-color: #3E5F44; 
 }
 /* NAVBARRRRRRR*/
-nav.navbar {
+nav {
     background-color: transparent; 
     padding: 1.5em 0; 
     position: sticky; 
@@ -15,6 +15,20 @@ nav.navbar {
     z-index: 100;
     box-shadow: 0 4px 6px rgba(49, 85, 52, 0.1); 
     padding: 1.5em 0;
+      display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  max-width: 100%;
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+  position: fixed;
+ background-color: #1b262c;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 100px;
 }
 
 
