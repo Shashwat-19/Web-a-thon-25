@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Business Directory - EcoCity Initiative</title>
+    <link rel="stylesheet" href="styless.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+            alt="SDG 11"
+            class="sdg-icon"
+          />
+          <span class="logo-text">EcoCity Initiative</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="eco-events.html" class="nav-link">Events</a>
+          <a href="business-directory.html" class="nav-link active"
+            >Directory</a
+          >
+          <a href="action-tracker.html" class="nav-link">Tracker</a>
+          <a href="waste-management.html" class="nav-link">Waste Hub</a>
+          <a href="discussion-forum.html" class="nav-link">Forum</a>
+          <a href="admin-dashboard.html" class="nav-link admin-link">Admin</a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="page-title">Green Business Directory</h1>
+          <p class="page-description">
+            Discover and support local eco-friendly businesses committed to
+            sustainability and environmental responsibility.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-filters">
+      <div class="container">
+        <div class="search-bar">
+          <div class="search-input-group">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              id="business-search"
+              placeholder="Search businesses by name, description, or location..."
+            />
+          </div>
+          <button class="btn btn-primary" id="search-btn">Search</button>
+        </div>
+
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label for="category-filter">Category:</label>
+            <select id="category-filter" class="filter-select">
+              <option value="">All Categories</option>
+              <option value="organic-food">Organic Food</option>
+              <option value="renewable-energy">Renewable Energy</option>
+              <option value="eco-packaging">Eco Packaging</option>
+              <option value="sustainable-fashion">Sustainable Fashion</option>
+              <option value="green-transport">Green Transport</option>
+              <option value="eco-services">Eco Services</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="rating-filter">Rating:</label>
+            <select id="rating-filter" class="filter-select">
+              <option value="">Any Rating</option>
+              <option value="4.5">4.5+ Stars</option>
+              <option value="4.0">4.0+ Stars</option>
+              <option value="3.5">3.5+ Stars</option>
+              <option value="3.0">3.0+ Stars</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="verified-filter">Verification:</label>
+            <select id="verified-filter" class="filter-select">
+              <option value="">All Businesses</option>
+              <option value="verified">Verified Only</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <button id="add-business-btn" class="btn btn-secondary">
+              <i class="fas fa-plus"></i>
+              Add Business
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="business-section">
+      <div class="container">
+        <div class="results-header">
+          <span id="results-count">Loading businesses...</span>
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid">
+              <i class="fas fa-th-large"></i>
+            </button>
+            <button class="view-btn" data-view="list">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+        <div class="business-grid" id="business-grid">
+        </div>
+      </div>
+    </section>
+
+    <div id="business-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="business-modal-title">Business Details</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div id="business-details">
+          </div>
+          <div class="reviews-section">
+            <h3>Customer Reviews</h3>
+            <div id="reviews-list">
+            </div>
+            <button class="btn btn-primary" id="write-review-btn">
+              Write a Review
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-business-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add Your Business</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="add-business-form">
+            <div class="form-group">
+              <label for="business-name">Business Name</label>
+              <input type="text" id="business-name" required />
+            </div>
+            <div class="form-group">
+              <label for="business-description">Description</label>
+              <textarea id="business-description" rows="4" required></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="business-category">Category</label>
+                <select id="business-category" required>
+                  <option value="">Select Category</option>
+                  <option value="organic-food">Organic Food</option>
+                  <option value="renewable-energy">Renewable Energy</option>
+                  <option value="eco-packaging">Eco Packaging</option>
+                  <option value="sustainable-fashion">
+                    Sustainable Fashion
+                  </option>
+                  <option value="green-transport">Green Transport</option>
+                  <option value="eco-services">Eco Services</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="business-phone">Phone Number</label>
+                <input type="tel" id="business-phone" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="business-address">Address</label>
+              <input type="text" id="business-address" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="business-email">Email</label>
+                <input type="email" id="business-email" required />
+              </div>
+              <div class="form-group">
+                <label for="business-website">Website</label>
+                <input
+                  type="url"
+                  id="business-website"
+                  placeholder="https://"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="business-features"
+                >Key Features (comma-separated)</label
+              >
+              <input
+                type="text"
+                id="business-features"
+                placeholder="e.g., Organic Certified, Zero Waste, Local Sourcing"
+              />
+            </div>
+            <div class="form-group">
+              <label for="business-image">Business Image URL</label>
+              <input
+                type="url"
+                id="business-image"
+                placeholder="https://example.com/image.jpg"
+              />
+            </div>
+            <div class="form-actions">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="cancel-add-business"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Submit for Review
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="review-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Write a Review</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div id="review-business-info">
+          </div>
+          <form id="review-form">
+            <div class="form-group">
+              <label for="reviewer-name">Your Name</label>
+              <input type="text" id="reviewer-name" required />
+            </div>
+            <div class="form-group">
+              <label for="review-rating">Rating</label>
+              <div class="rating-input">
+                <input
+                  type="radio"
+                  id="review-star5"
+                  name="review-rating"
+                  value="5"
+                />
+                <label for="review-star5" title="5 stars">★</label>
+                <input
+                  type="radio"
+                  id="review-star4"
+                  name="review-rating"
+                  value="4"
+                />
+                <label for="review-star4" title="4 stars">★</label>
+                <input
+                  type="radio"
+                  id="review-star3"
+                  name="review-rating"
+                  value="3"
+                />
+                <label for="review-star3" title="3 stars">★</label>
+                <input
+                  type="radio"
+                  id="review-star2"
+                  name="review-rating"
+                  value="2"
+                />
+                <label for="review-star2" title="2 stars">★</label>
+                <input
+                  type="radio"
+                  id="review-star1"
+                  name="review-rating"
+                  value="1"
+                />
+                <label for="review-star1" title="1 star">★</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="review-title">Review Title</label>
+              <input type="text" id="review-title" required />
+            </div>
+            <div class="form-group">
+              <label for="review-comment">Your Review</label>
+              <textarea
+                id="review-comment"
+                rows="4"
+                required
+                placeholder="Share your experience with this business..."
+              ></textarea>
+            </div>
+            <div class="form-actions">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="cancel-review"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Submit Review
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+                alt="SDG 11"
+              />
+              <span>EcoCity Initiative</span>
+            </div>
+            <p>
+              Building sustainable cities and communities through collective
+              action and innovation.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="eco-events.html">Events</a></li>
+              <li><a href="business-directory.html">Directory</a></li>
+              <li><a href="action-tracker.html">Tracker</a></li>
+              <li><a href="waste-management.html">Waste Hub</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="discussion-forum.html">Forum</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#privacy">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 EcoCity Initiative. All rights reserved. | Supporting UN
+            SDG 11
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="business-directory.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        auth.updateNavigation();
+      });
+    </script>
+  </body>
+</html>
