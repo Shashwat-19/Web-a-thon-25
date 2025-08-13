@@ -78,6 +78,7 @@ nav.navbar ul li a::scroll-marker {
     background-size: cover;
     background-blend-mode: overlay; 
     height: 400px;
+    
 }
 
 .hero-section h1 {
@@ -120,36 +121,43 @@ nav.navbar ul li a::scroll-marker {
 
 }
 
+.goals-section{
+    background-color: white;
+}
 .goals-section h1{
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
     font-weight: 500;
-    color: #fffdd0; 
-    font-family:   sans-serif;
+    color: rgb(181, 169, 169); 
+    font-family:cursive;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
-    top: 100px;
+    z-index: 100;
     text-align: center;
+    position: relative;
+    top:-114px
 
 
 
 }
-
-
 .sdg-gallery {
-    display: grid;
+    position: relative;
+    top: -100px;
+    display: inline;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
-    max-width: 1000px;
+    max-width: 100%;
     margin: auto;
 }
 
 .sdg-gallery img {
-    width: 100%;
-    height: auto;
+    width: 83.6px;
+    height: 83.6px;
     border-radius: 4px;
     border: 1px solid #ddd;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     background-color: white;
+    position: relative;
+    top: -19.6px;
 }
 
 .sdg-gallery img:hover {
