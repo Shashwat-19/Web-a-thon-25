@@ -78,10 +78,10 @@ if (window.location.pathname.endsWith("/index.html") || window.location.pathname
 }
 
 
-if (window.location.pathname.includes("/tracker/")) {
+/*(if (window.location.pathname.includes("/tracker/")) {
   document.addEventListener("DOMContentLoaded", protectTrackerPage);
 }
-
+*/
 const registerForm = document.querySelector("#register-form");
 if (registerForm) {
   registerForm.addEventListener("submit", (e) => {
