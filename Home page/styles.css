@@ -1,0 +1,566 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Londrina+Outline&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tangerine:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #3E5F44; 
+}
+/* NAVBARRRRRRR*/
+nav.navbar {
+    background-color: transparent; 
+    padding: 1.5em 0; 
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(49, 85, 52, 0.1); 
+    padding: 1.5em 0;
+}
+
+
+nav.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+nav.navbar ul li a {
+    color: white; 
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 25px; 
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav.navbar ul li a:hover {
+    background-color: #b2da89; 
+    color: #3E5F44; 
+    transform: scale(1.05); 
+}
+nav.navbar ul li a::scroll-marker {
+    display: none; 
+}
+
+
+/* HEROOOOOOOOOOO*/
+
+.hero-section {
+    position: relative;
+    top: -78px;
+    background-color: #004030; 
+    color: #fffdd0;
+    text-align: center;
+    padding: 80px 0;
+    background-image: url("assets/homeimg.jpg");
+    background-size: cover;
+    background-blend-mode: overlay; 
+    height: 400px;
+}
+
+.hero-section h1 {
+    font-size: 4.5em;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: #fffdd0; 
+    font-family:  'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    top: 100px;
+    position: relative;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #fffdd0; 
+    position: relative;
+    top: 105px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.cta-button {
+    background-color: #3E5F44; 
+    color: white; 
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    background-color: #DDEB9D; 
+    color: #FAF6E9; 
+    transform: scale(1.1); 
+    border: 2px solid #8c6e54; 
+
+}
+
+.goals-section h1{
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #fffdd0; 
+    font-family:   sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    top: 100px;
+    text-align: center;
+
+
+
+}
+
+
+.sdg-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.sdg-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: white;
+}
+
+.sdg-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+.info-section {
+    padding: 50px 0;
+    background-color: #f9f6eb; 
+    text-align: center;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    background-color: #fff6e5; /* Very light beige */
+    border-radius: 20px;
+    width: 250px;
+    padding: 25px;
+    margin: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add deeper shadow for floating effect */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-box:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+}
+
+.info-box h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #8c6e54; 
+    font-weight: 600;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #4b3b30; 
+}
+
+.info-link {
+    text-decoration: none;
+    color: #8c6e54; /* Soft brown link */
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.info-link:hover {
+    color: #4b3b30; /* Dark brown hover */
+}
+
+/* Footer */
+footer {
+    background-color: #4b3b30;
+    color: #f4f1e0; 
+    text-align: center;
+    padding: 30px 0;
+}
+
+@media (max-width: 768px) {
+    .info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-box {
+        width: 80%;
+    }
+}
+
+
+
+
+
+
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+label {
+    margin-top: 20px;
+}
+
+input[type="text"], button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.schedule-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+
+ul {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+ul li {
+    font-size: 18px;
+    color: #333;
+    padding: 5px 0;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+
+
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff6e5; /* Very light beige */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+/* Headings */
+h1, h2 {
+    color: #4b3b30; /* Dark brown heading color */
+}
+
+/* Attendance Page */
+.attendance-form {
+    margin-top: 20px;
+}
+
+.attendance-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #4b3b30;
+    font-weight: bold;
+}
+
+.attendance-form input[type="text"], .attendance-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #dbc3a3;
+    box-sizing: border-box;
+}
+
+.attendance-form button[type="submit"] {
+    background-color: #8c6e54;
+    color: #f4f1e0;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.attendance-form button[type="submit"]:hover {
+    background-color: #dbc3a3;
+    color: #4b3b30;
+}
+
+/* Profile Page */
+.profile-details {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff6e5; /* Very light beige */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details h2 {
+    color: #8c6e54; /* Soft brown heading */
+}
+
+.profile-details p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #4b3b30;
+}
+
+/* Class Schedule Page */
+.schedule-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #dbc3a3;
+}
+
+.schedule-table th {
+    background-color: #8c6e54;
+    color: #f4f1e0;
+}
+
+.schedule-table td {
+    background-color: #f4f1e0;
+    color: #4b3b30;
+}
+
+/* Assignments Page */
+.assignments-board {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff6e5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.assignments-board h2 {
+    color: #8c6e54;
+}
+
+.assignments-board ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.assignments-board ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f4f1e0;
+    border: 1px solid #dbc3a3;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #4b3b30;
+}
+
+.assignments-board ul li:hover {
+    background-color: #dbc3a3;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff6e5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #4b3b30;
+}
+
+label, select, input {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    background-color: #8c6e54;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #dbc3a3;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.attendance-table th, .attendance-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.attendance-table th {
+    background-color: #f4f1e0;
+    color: #4b3b30;
+}
+
+
+
+
+
+/* Whiteboard Style */
+.whiteboard {
+    background-color: #fffdd0; /* Creamy whiteboard background */
+    border: 2px solid #4b3b30; /* Dark brown border */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    text-align: center;
+}
+
+.whiteboard h1, .whiteboard h2 {
+    color: #4b3b30; /* Dark brown text */
+}
+
+.assignment-form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #dbc3a3; /* Light beige border */
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.assignment-form button {
+    background-color: #8c6e54; /* Soft brown button */
+    color: #fffdd0; /* Cream text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.assignment-form button:hover {
+    background-color: #dbc3a3; /* Light beige hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+.assignment-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.assignment-list ul li {
+    background-color: #f9f6eb; /* Light beige background for assignments */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    color: #4b3b30; /* Dark brown text */
+    font-size: 18px;
+}
+
