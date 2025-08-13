@@ -49,7 +49,7 @@ function checkSessionAndRedirect() {
     const thirtyTwoHours = 32 * 60 * 60 * 1000; // 32 hours
 
     if (now - loginTime < thirtyTwoHours) {
-      window.location.href = "Home page/Events.html";
+      window.location.href = "Homepage/index.html";
     } else {
       clearSession();
     }
@@ -161,7 +161,7 @@ if (loginForm) {
         showMessage("Login successful! Redirecting...");
         startSession();
         setTimeout(() => {
-          window.location.href = "Home page/Events.html";
+          window.location.href = "Homepage/index.html";
         }, 1500);
       })
       .catch((error) => {
