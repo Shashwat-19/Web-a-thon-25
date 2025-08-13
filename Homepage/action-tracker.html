@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Citizen Action Tracker - EcoCity Initiative</title>
+    <link rel="stylesheet" href="styless.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+            alt="SDG 11"
+            class="sdg-icon"
+          />
+          <span class="logo-text">EcoCity Initiative</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="Events.html" class="nav-link">Events</a>
+          <a href="business-directory.html" class="nav-link">Directory</a>
+          <a href="action-tracker.html" class="nav-link active">Tracker</a>
+          <a href="waste-management.html" class="nav-link">Waste Hub</a>
+          <a href="discussion-forum.html" class="nav-link">Forum</a>
+          <a href="admin-dashboard.html" class="nav-link admin-link">Admin</a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+
+    <section class="page-header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="page-title">Citizen Action Tracker</h1>
+          <p class="page-description">
+            Track your sustainability actions, earn points, and compete with
+            fellow citizens to build a greener community.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="user-dashboard">
+      <div class="container">
+        <div class="dashboard-grid">
+          <div class="user-profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="profile-info">
+                <h3 id="user-name">Eco Champion</h3>
+                <p id="user-level">Level 1 - Beginner</p>
+              </div>
+            </div>
+            <div class="profile-stats">
+              <div class="stat-item">
+                <span class="stat-number" id="total-points">0</span>
+                <span class="stat-label">Total Points</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" id="total-actions">0</span>
+                <span class="stat-label">Actions Logged</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" id="streak-days">0</span>
+                <span class="stat-label">Day Streak</span>
+              </div>
+            </div>
+            <div class="level-progress">
+              <div class="progress-info">
+                <span>Progress to Next Level</span>
+                <span id="progress-text">0/100</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quick-actions-card">
+            <h3>Quick Actions</h3>
+            <div class="quick-actions-grid">
+              <button
+                class="quick-action-btn"
+                data-action="tree"
+                data-points="50"
+              >
+                <i class="fas fa-tree"></i>
+                <span>Plant a Tree</span>
+                <small>+50 points</small>
+              </button>
+              <button
+                class="quick-action-btn"
+                data-action="recycle"
+                data-points="20"
+              >
+                <i class="fas fa-recycle"></i>
+                <span>Recycle Waste</span>
+                <small>+20 points</small>
+              </button>
+              <button
+                class="quick-action-btn"
+                data-action="transport"
+                data-points="30"
+              >
+                <i class="fas fa-bus"></i>
+                <span>Use Public Transport</span>
+                <small>+30 points</small>
+              </button>
+              <button
+                class="quick-action-btn"
+                data-action="energy"
+                data-points="25"
+              >
+                <i class="fas fa-lightbulb"></i>
+                <span>Save Energy</span>
+                <small>+25 points</small>
+              </button>
+              <button
+                class="quick-action-btn"
+                data-action="water"
+                data-points="15"
+              >
+                <i class="fas fa-tint"></i>
+                <span>Conserve Water</span>
+                <small>+15 points</small>
+              </button>
+              <button
+                class="quick-action-btn"
+                data-action="custom"
+                data-points="0"
+              >
+                <i class="fas fa-plus"></i>
+                <span>Custom Action</span>
+                <small>Log Activity</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="badges-card">
+            <h3>Your Badges</h3>
+            <div class="badges-grid" id="badges-grid">
+
+            </div>
+            <div class="badges-empty" id="badges-empty">
+              <i class="fas fa-medal"></i>
+              <p>Complete actions to earn badges!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <div class="content-tabs">
+          <button class="tab-btn active" data-tab="history">My Actions</button>
+          <button class="tab-btn" data-tab="leaderboard">Leaderboard</button>
+          <button class="tab-btn" data-tab="challenges">Challenges</button>
+        </div>
+
+        <div class="tab-content active" id="history-tab">
+          <div class="actions-header">
+            <h3>Recent Actions</h3>
+            <button class="btn btn-primary" id="log-action-btn">
+              <i class="fas fa-plus"></i>
+              Log Action
+            </button>
+          </div>
+          <div class="actions-list" id="actions-list">
+          </div>
+          <div class="actions-empty" id="actions-empty">
+            <i class="fas fa-clipboard-list"></i>
+            <h4>No actions logged yet</h4>
+            <p>
+              Start tracking your sustainability efforts to earn points and
+              badges!
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-content" id="leaderboard-tab">
+          <div class="leaderboard-filters">
+            <button class="filter-btn active" data-period="week">
+              This Week
+            </button>
+            <button class="filter-btn" data-period="month">This Month</button>
+            <button class="filter-btn" data-period="all">All Time</button>
+          </div>
+          <div class="leaderboard-list" id="leaderboard-list">
+          </div>
+        </div>
+
+        <div class="tab-content" id="challenges-tab">
+          <div class="challenges-grid" id="challenges-grid">
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div id="log-action-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Log Your Action</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="log-action-form">
+            <div class="form-group">
+              <label for="action-type">Action Type</label>
+              <select id="action-type" required>
+                <option value="">Select Action Type</option>
+                <option value="tree" data-points="50">
+                  Plant a Tree (+50 points)
+                </option>
+                <option value="recycle" data-points="20">
+                  Recycle Waste (+20 points)
+                </option>
+                <option value="transport" data-points="30">
+                  Use Public Transport (+30 points)
+                </option>
+                <option value="energy" data-points="25">
+                  Save Energy (+25 points)
+                </option>
+                <option value="water" data-points="15">
+                  Conserve Water (+15 points)
+                </option>
+                <option value="bike" data-points="35">
+                  Bike to Work (+35 points)
+                </option>
+                <option value="compost" data-points="30">
+                  Composting (+30 points)
+                </option>
+                <option value="cleanup" data-points="40">
+                  Community Cleanup (+40 points)
+                </option>
+                <option value="custom" data-points="10">
+                  Custom Action (+10 points)
+                </option>
+              </select>
+            </div>
+            <div
+              class="form-group"
+              id="custom-action-group"
+              style="display: none"
+            >
+              <label for="custom-action-name">Custom Action Name</label>
+              <input
+                type="text"
+                id="custom-action-name"
+                placeholder="Describe your action"
+              />
+            </div>
+            <div class="form-group">
+              <label for="action-description">Description</label>
+              <textarea
+                id="action-description"
+                rows="3"
+                placeholder="Tell us more about your action..."
+              ></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="action-date">Date</label>
+                <input type="date" id="action-date" required />
+              </div>
+              <div class="form-group">
+                <label for="action-impact">Impact Level</label>
+                <select id="action-impact">
+                  <option value="low">Low Impact</option>
+                  <option value="medium" selected>Medium Impact</option>
+                  <option value="high">High Impact</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="action-photo">Photo (optional)</label>
+              <input type="file" id="action-photo" accept="image/*" />
+              <small>Add a photo to earn bonus points!</small>
+            </div>
+            <div class="form-actions">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="cancel-log-action"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">Log Action</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+                alt="SDG 11"
+              />
+              <span>EcoCity Initiative</span>
+            </div>
+            <p>
+              Building sustainable cities and communities through collective
+              action and innovation.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="Events.html">Events</a></li>
+              <li><a href="business-directory.html">Directory</a></li>
+              <li><a href="action-tracker.html">Tracker</a></li>
+              <li><a href="waste-management.html">Waste Hub</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="discussion-forum.html">Forum</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#privacy">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 EcoCity Initiative. All rights reserved. | Supporting UN
+            SDG 11
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="/Web-a-thon-25/Firebase/auth.js"></script>
+    <script src="action-tracker.js"></script>
+    <script>
+      // Initialize authentication and check if user is logged in
+      document.addEventListener("DOMContentLoaded", function () {
+        // Update navigation based on auth state
+        auth.updateNavigation();
+
+        // Check if user is authenticated for this protected page
+        if (!auth.isAuthenticated()) {
+          window.location.href = "auth/login.html";
+          return;
+        }
+
+        // Initialize page with user data
+        const currentUser = auth.getCurrentUser();
+        if (currentUser && currentUser.profile) {
+          // Update user profile data from auth system
+          userProfile.points = currentUser.profile.points || 0;
+          userProfile.level = currentUser.profile.level || 1;
+          userProfile.badges = currentUser.profile.badges || [];
+          userProfile.streak = currentUser.profile.streak || 0;
+        }
+
+        // Update user profile display
+        updateUserProfile();
+      });
+    </script>
+  </body>
+</html>

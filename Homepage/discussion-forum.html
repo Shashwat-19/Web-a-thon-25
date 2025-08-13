@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discussion Forum - EcoCity Initiative</title>
+    <link rel="stylesheet" href="styless.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+            alt="SDG 11"
+            class="sdg-icon"
+          />
+          <span class="logo-text">EcoCity Initiative</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="Events.html" class="nav-link">Events</a>
+          <a href="business-directory.html" class="nav-link">Directory</a>
+          <a href="action-tracker.html" class="nav-link">Tracker</a>
+          <a href="waste-management.html" class="nav-link">Waste Hub</a>
+          <a href="discussion-forum.html" class="nav-link active">Forum</a>
+          <a href="admin-dashboard.html" class="nav-link admin-link">Admin</a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="page-title">Discussion Forum</h1>
+          <p class="page-description">
+            Connect with fellow citizens, share ideas, and collaborate on
+            sustainable solutions for our community.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="forum-categories">
+      <div class="container">
+        <div class="categories-header">
+          <h2>Discussion Categories</h2>
+          <button class="btn btn-primary" id="new-post-btn">
+            <i class="fas fa-plus"></i>
+            New Post
+          </button>
+        </div>
+        <div class="categories-grid">
+          <div class="category-card" data-category="transport">
+            <div class="category-icon transport">
+              <i class="fas fa-bus"></i>
+            </div>
+            <div class="category-info">
+              <h3>Transport</h3>
+              <p>
+                Public transport, cycling, electric vehicles, and sustainable
+                mobility solutions
+              </p>
+              <div class="category-stats">
+                <span class="post-count">24 posts</span>
+                <span class="recent-activity">2 hours ago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-card" data-category="housing">
+            <div class="category-icon housing">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="category-info">
+              <h3>Housing</h3>
+              <p>
+                Green building, energy efficiency, sustainable architecture, and
+                eco-friendly homes
+              </p>
+              <div class="category-stats">
+                <span class="post-count">18 posts</span>
+                <span class="recent-activity">5 hours ago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-card" data-category="energy">
+            <div class="category-icon energy">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="category-info">
+              <h3>Energy</h3>
+              <p>
+                Renewable energy, conservation tips, smart grids, and
+                sustainable power solutions
+              </p>
+              <div class="category-stats">
+                <span class="post-count">31 posts</span>
+                <span class="recent-activity">1 hour ago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-card" data-category="water">
+            <div class="category-icon water">
+              <i class="fas fa-tint"></i>
+            </div>
+            <div class="category-info">
+              <h3>Water</h3>
+              <p>
+                Water conservation, quality management, rainwater harvesting,
+                and sustainable usage
+              </p>
+              <div class="category-stats">
+                <span class="post-count">15 posts</span>
+                <span class="recent-activity">3 hours ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="forum-posts">
+      <div class="container">
+        <div class="posts-header">
+          <div class="posts-filters">
+            <button class="filter-btn active" data-filter="all">
+              All Posts
+            </button>
+            <button class="filter-btn" data-filter="popular">Popular</button>
+            <button class="filter-btn" data-filter="recent">Recent</button>
+            <button class="filter-btn" data-filter="unanswered">
+              Unanswered
+            </button>
+          </div>
+          <div class="posts-search">
+            <input
+              type="text"
+              id="posts-search"
+              placeholder="Search discussions..."
+            />
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+
+        <div class="posts-list" id="posts-list">
+  
+        </div>
+      </div>
+    </section>
+
+
+    <div id="new-post-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Create New Post</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="new-post-form">
+            <div class="form-group">
+              <label for="post-category">Category</label>
+              <select id="post-category" required>
+                <option value="">Select Category</option>
+                <option value="transport">Transport</option>
+                <option value="housing">Housing</option>
+                <option value="energy">Energy</option>
+                <option value="water">Water</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="post-title">Title</label>
+              <input
+                type="text"
+                id="post-title"
+                required
+                placeholder="What would you like to discuss?"
+              />
+            </div>
+            <div class="form-group">
+              <label for="post-content">Content</label>
+              <textarea
+                id="post-content"
+                rows="6"
+                required
+                placeholder="Share your thoughts, questions, or ideas..."
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="post-tags">Tags (optional)</label>
+              <input
+                type="text"
+                id="post-tags"
+                placeholder="Add tags separated by commas"
+              />
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary" id="cancel-post">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Post Discussion
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="post-details-modal" class="modal">
+      <div class="modal-content large">
+        <div class="modal-header">
+          <h2 id="post-details-title">Post Details</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div id="post-details-content">
+      
+          </div>
+          <div class="replies-section">
+            <h3>Replies</h3>
+            <div id="replies-list">
+             
+            </div>
+            <div class="reply-form">
+              <h4>Add Your Reply</h4>
+              <form id="reply-form">
+                <div class="form-group">
+                  <textarea
+                    id="reply-content"
+                    rows="4"
+                    placeholder="Share your thoughts..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Post Reply
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+                alt="SDG 11"
+              />
+              <span>EcoCity Initiative</span>
+            </div>
+            <p>
+              Building sustainable cities and communities through collective
+              action and innovation.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="Events.html">Events</a></li>
+              <li><a href="business-directory.html">Directory</a></li>
+              <li><a href="action-tracker.html">Tracker</a></li>
+              <li><a href="waste-management.html">Waste Hub</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="discussion-forum.html">Forum</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#privacy">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 EcoCity Initiative. All rights reserved. | Supporting UN
+            SDG 11
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="/Web-a-thon-25/Firebase/auth.js"></script>
+    <script src="discussion-forum.js"></script>
+    <script>
+      // Initialize authentication
+      document.addEventListener("DOMContentLoaded", function () {
+        auth.updateNavigation();
+      });
+    </script>
+  </body>
+</html>

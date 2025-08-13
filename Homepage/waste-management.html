@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waste Management Hub - EcoCity Initiative</title>
+    <link rel="stylesheet" href="styless.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+            alt="SDG 11"
+            class="sdg-icon"
+          />
+          <span class="logo-text">EcoCity Initiative</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="Events.html" class="nav-link">Events</a>
+          <a href="business-directory.html" class="nav-link">Directory</a>
+          <a href="action-tracker.html" class="nav-link">Tracker</a>
+          <a href="waste-management.html" class="nav-link active">Waste Hub</a>
+          <a href="discussion-forum.html" class="nav-link">Forum</a>
+          <a href="admin-dashboard.html" class="nav-link admin-link">Admin</a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+
+    <section class="page-header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="page-title">Waste Management Hub</h1>
+          <p class="page-description">
+            Find recycling centers, learn proper waste segregation, and schedule
+            bulk waste pickup in your area.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="quick-actions-section">
+      <div class="container">
+        <div class="quick-actions-grid">
+          <div class="quick-action-card" onclick="showTab('map')">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Find Locations</h3>
+            <p>Locate nearby recycling centers and waste collection points</p>
+          </div>
+          <div class="quick-action-card" onclick="showTab('guide')">
+            <i class="fas fa-recycle"></i>
+            <h3>Segregation Guide</h3>
+            <p>Learn how to properly sort different types of waste</p>
+          </div>
+          <div class="quick-action-card" onclick="showTab('pickup')">
+            <i class="fas fa-truck"></i>
+            <h3>Bulk Pickup</h3>
+            <p>Schedule pickup for large items and bulk waste</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="main-content">
+      <div class="container">
+        <div class="content-tabs">
+          <button class="tab-btn active" data-tab="map">Interactive Map</button>
+          <button class="tab-btn" data-tab="guide">Segregation Guide</button>
+          <button class="tab-btn" data-tab="pickup">Bulk Pickup</button>
+        </div>
+
+
+        <div class="tab-content active" id="map-tab">
+          <div class="map-section">
+            <div class="map-filters">
+              <h3>Filter Locations</h3>
+              <div class="filter-options">
+                <label class="filter-checkbox">
+                  <input type="checkbox" checked data-type="recycling" />
+                  <span class="checkmark recycling"></span>
+                  Recycling Centers
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" checked data-type="composting" />
+                  <span class="checkmark composting"></span>
+                  Composting Facilities
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" checked data-type="collection" />
+                  <span class="checkmark collection"></span>
+                  Collection Points
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" checked data-type="hazardous" />
+                  <span class="checkmark hazardous"></span>
+                  Hazardous Waste
+                </label>
+              </div>
+            </div>
+            <div class="map-container">
+              <div id="waste-map">
+            
+                <div class="map-placeholder">
+                  <i class="fas fa-map"></i>
+                  <h3>Interactive Waste Management Map</h3>
+                  <p>Find waste management facilities near you</p>
+                  <div class="map-locations" id="map-locations">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tab-content" id="guide-tab">
+          <div class="segregation-guide">
+            <div class="guide-intro">
+              <h3>Waste Segregation Guide</h3>
+              <p>
+                Proper waste segregation is essential for effective recycling
+                and environmental protection. Follow these guidelines to sort
+                your waste correctly.
+              </p>
+            </div>
+            <div class="waste-categories" id="waste-categories">
+             
+            </div>
+          </div>
+        </div>
+
+       
+        <div class="tab-content" id="pickup-tab">
+          <div class="pickup-section">
+            <div class="pickup-info">
+              <h3>Bulk Waste Pickup Service</h3>
+              <p>
+                Schedule pickup for large items, furniture, electronics, and
+                other bulk waste that cannot be disposed of through regular
+                collection.
+              </p>
+
+              <div class="pickup-guidelines">
+                <h4>Guidelines:</h4>
+                <ul>
+                  <li>Items must be placed curbside by 7 AM on pickup day</li>
+                  <li>Maximum 5 large items per request</li>
+                  <li>Hazardous materials require special handling</li>
+                  <li>Electronics may have additional fees</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pickup-form-container">
+              <form id="pickup-request-form" class="pickup-form">
+                <h4>Request Bulk Pickup</h4>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="pickup-name">Full Name</label>
+                    <input type="text" id="pickup-name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="pickup-phone">Phone Number</label>
+                    <input type="tel" id="pickup-phone" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="pickup-address">Pickup Address</label>
+                  <input type="text" id="pickup-address" required />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="pickup-date">Preferred Date</label>
+                    <input type="date" id="pickup-date" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="pickup-time">Time Window</label>
+                    <select id="pickup-time" required>
+                      <option value="">Select Time</option>
+                      <option value="morning">Morning (8 AM - 12 PM)</option>
+                      <option value="afternoon">
+                        Afternoon (12 PM - 5 PM)
+                      </option>
+                      <option value="flexible">Flexible</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="pickup-items">Items for Pickup</label>
+                  <textarea
+                    id="pickup-items"
+                    rows="4"
+                    placeholder="List all items to be picked up..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="special-instructions">Special Instructions</label>
+                  <textarea
+                    id="special-instructions"
+                    rows="3"
+                    placeholder="Any special handling requirements or access instructions..."
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-calendar-check"></i>
+                  Schedule Pickup
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+                alt="SDG 11"
+              />
+              <span>EcoCity Initiative</span>
+            </div>
+            <p>
+              Building sustainable cities and communities through collective
+              action and innovation.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="Events.html">Events</a></li>
+              <li><a href="business-directory.html">Directory</a></li>
+              <li><a href="action-tracker.html">Tracker</a></li>
+              <li><a href="waste-management.html">Waste Hub</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="discussion-forum.html">Forum</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#privacy">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 EcoCity Initiative. All rights reserved. | Supporting UN
+            SDG 11
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="/Web-a-thon-25/Firebase/auth.js"></script>
+    <script src="waste-management.js"></script>
+    <script>
+      // Initialize authentication
+      document.addEventListener("DOMContentLoaded", function () {
+        auth.updateNavigation();
+      });
+    </script>
+  </body>
+</html>
