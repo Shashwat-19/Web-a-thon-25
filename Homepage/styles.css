@@ -313,7 +313,7 @@ background-color: green;
 }
 
 .stats-grid {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-6);
 }
@@ -325,6 +325,8 @@ background-color: green;
   box-shadow: var(--shadow);
   text-align: center;
   transition: all 0.3s ease;
+  flex-direction: row;
+  
 }
 
 .stat-card:hover {
