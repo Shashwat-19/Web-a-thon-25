@@ -49,7 +49,7 @@ function checkSessionAndRedirect() {
     const thirtyTwoHours = 32 * 60 * 60 * 1000; // 32 hours
 
     if (now - loginTime < thirtyTwoHours) {
-     // window.location.href = "tracker/index.html";
+      window.location.href = "Home page/Events.html";
     } else {
       clearSession();
     }
@@ -61,13 +61,13 @@ function protectTrackerPage() {
   const loginTime = localStorage.getItem('loginTime');
 
   if (isLoggedIn !== 'true' || !loginTime) {
-   // window.location.href = "../index.html";
+   window.location.href = "../index.html";
   } else {
     const now = new Date().getTime();
     const thirtyTwoHours = 32 * 60 * 60 * 1000;
     if (now - loginTime >= thirtyTwoHours) {
       clearSession();
-     // window.location.href = "../index.html";
+      window.location.href = "../index.html";
     }
   }
 }
@@ -78,10 +78,10 @@ if (window.location.pathname.endsWith("/index.html") || window.location.pathname
 }
 
 
-/*(if (window.location.pathname.includes("/tracker/")) {
+if (window.location.pathname.includes("/Home page/")) {
   document.addEventListener("DOMContentLoaded", protectTrackerPage);
 }
-*/
+
 const registerForm = document.querySelector("#register-form");
 if (registerForm) {
   registerForm.addEventListener("submit", (e) => {
@@ -125,7 +125,7 @@ if (registerForm) {
             showMessage("User created successfully! Redirecting...");
             startSession();
             setTimeout(() => {
-              //window.location.href = "tracker/index.html";
+              window.location.href = "Home page/Events.html";
             }, 1500);
           })
           .catch((error) => {
@@ -161,7 +161,7 @@ if (loginForm) {
         showMessage("Login successful! Redirecting...");
         startSession();
         setTimeout(() => {
-          //window.location.href = "tracker/index.html";
+          window.location.href = "Home page/Events.html";
         }, 1500);
       })
       .catch((error) => {
@@ -178,10 +178,10 @@ if (loginForm) {
   });
 }
 
-/*window.logout = function() {
+window.logout = function() {
   clearSession();
   window.location.href = "../index.html";
-};*/
+};
 
 
 window.openTab = function (tabName) {
