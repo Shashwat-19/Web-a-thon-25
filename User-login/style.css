@@ -88,8 +88,8 @@ h1{
   }
   
   .tab-btn.active {
-    background-color: rgb(44, 143, 255);
-    color: white;
+    background-color: rgb(94, 147, 108);
+    color: #E8FFD7;
     border-radius: 20px;
   }
   
@@ -100,7 +100,7 @@ h1{
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: rgb(44, 143, 255);
+    background-color: rgb(94, 147, 108);
     transition: all 0.3s ease;
     transform: translateX(-50%);
   }
@@ -164,7 +164,7 @@ h1{
   }
   
   .login-btn {
-    background-color: rgb(44, 143, 255);
+    background-color:rgb(94, 147, 108);
     border: none;
     padding: 12px;
     width: 100%;
@@ -175,7 +175,7 @@ h1{
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    color: white;
+    color: #E8FFD7;
   }
   
   .login-btn:before {
@@ -195,9 +195,9 @@ h1{
   }
   
   .login-btn:hover {
-    background-color: rgb(45, 45, 200);
+    background-color: rgb(94, 147, 108);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(45, 45, 200, 0.3);
+    box-shadow: 0 5px 15px rgb(94, 147, 108);
   }
   
   .login-btn:hover:before {
@@ -206,11 +206,11 @@ h1{
   
   .login-btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(45, 45, 200, 0.3);
+    box-shadow: 0 2px 5px rgb(94, 147, 108);
   }
   
   .reg-btn {
-    background-color: rgb(44, 143, 255);
+    background-color: rgb(94, 147, 108);
     border: none;
     padding: 12px;
     width: 100%;
@@ -221,7 +221,7 @@ h1{
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    color: white;
+    color: #E8FFD7;
   }
   
   .reg-btn:before {
@@ -241,7 +241,7 @@ h1{
   }
   
   .reg-btn:hover {
-    background-color: rgb(45, 45, 200);
+    background-color: rgb(94, 147, 108);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(45, 45, 200, 0.3);
   }
@@ -328,7 +328,7 @@ h1{
   
   .messageDiv {
     background-color: blueviolet;
-    color: white;
+    color: #E8FFD7;
     padding: 10px 20px;
     border-radius: 5px;
     margin: 10px;
@@ -341,7 +341,7 @@ footer{
     
     margin: 0%;
     background: rgba(0, 0, 0, 0.5);
-    color: rgb(255, 255, 255);
+    color: #E8FFD7;
     text-align: center;
     position: fixed;
     bottom: 0;
