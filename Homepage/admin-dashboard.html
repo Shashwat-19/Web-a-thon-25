@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - EcoCity Initiative</title>
+    <link rel="stylesheet" href="styless.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+            alt="SDG 11"
+            class="sdg-icon"
+          />
+          <span class="logo-text">EcoCity Initiative</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="Events.html" class="nav-link">Events</a>
+          <a href="business-directory.html" class="nav-link">Directory</a>
+          <a href="action-tracker.html" class="nav-link">Tracker</a>
+          <a href="waste-management.html" class="nav-link">Waste Hub</a>
+          <a href="discussion-forum.html" class="nav-link">Forum</a>
+          <a href="admin-dashboard.html" class="nav-link admin-link active"
+            >Admin</a
+          >
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+
+    <section class="page-header admin-header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="page-title">Admin Dashboard</h1>
+          <p class="page-description">
+            Manage platform content, monitor analytics, and oversee community
+            activities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="dashboard-stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number" id="total-users">1,247</h3>
+              <p class="stat-label">Total Users</p>
+              <span class="stat-change positive">+12% this month</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number" id="total-events">45</h3>
+              <p class="stat-label">Active Events</p>
+              <span class="stat-change positive">+5 this week</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-store"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number" id="total-businesses">128</h3>
+              <p class="stat-label">Verified Businesses</p>
+              <span class="stat-change positive">+8 this month</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number" id="total-posts">342</h3>
+              <p class="stat-label">Forum Posts</p>
+              <span class="stat-change positive">+23 this week</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-content">
+      <div class="container">
+        <div class="admin-tabs">
+          <button class="tab-btn active" data-tab="overview">Overview</button>
+          <button class="tab-btn" data-tab="events">Events</button>
+          <button class="tab-btn" data-tab="businesses">Businesses</button>
+          <button class="tab-btn" data-tab="forum">Forum</button>
+          <button class="tab-btn" data-tab="users">Users</button>
+          <button class="tab-btn" data-tab="analytics">Analytics</button>
+        </div>
+
+        <div class="tab-content active" id="overview-tab">
+          <div class="overview-grid">
+            <div class="recent-activity">
+              <h3>Recent Activity</h3>
+              <div class="activity-list" id="activity-list">
+               
+              </div>
+            </div>
+            <div class="pending-approvals">
+              <h3>Pending Approvals</h3>
+              <div class="approval-summary">
+                <div class="approval-item">
+                  <span class="approval-count">3</span>
+                  <span class="approval-type">Events</span>
+                </div>
+                <div class="approval-item">
+                  <span class="approval-count">5</span>
+                  <span class="approval-type">Businesses</span>
+                </div>
+                <div class="approval-item">
+                  <span class="approval-count">2</span>
+                  <span class="approval-type">Forum Posts</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  
+        <div class="tab-content" id="events-tab">
+          <div class="tab-header">
+            <h3>Event Management</h3>
+            <div class="tab-filters">
+              <button class="filter-btn active" data-status="all">
+                All Events
+              </button>
+              <button class="filter-btn" data-status="pending">Pending</button>
+              <button class="filter-btn" data-status="approved">
+                Approved
+              </button>
+              <button class="filter-btn" data-status="rejected">
+                Rejected
+              </button>
+            </div>
+          </div>
+          <div class="admin-table">
+            <table id="events-table">
+              <thead>
+                <tr>
+                  <th>Event</th>
+                  <th>Organizer</th>
+                  <th>Date</th>
+                  <th>Participants</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+       
+        <div class="tab-content" id="businesses-tab">
+          <div class="tab-header">
+            <h3>Business Directory Management</h3>
+            <div class="tab-filters">
+              <button class="filter-btn active" data-status="all">
+                All Businesses
+              </button>
+              <button class="filter-btn" data-status="pending">Pending</button>
+              <button class="filter-btn" data-status="verified">
+                Verified
+              </button>
+              <button class="filter-btn" data-status="rejected">
+                Rejected
+              </button>
+            </div>
+          </div>
+          <div class="admin-table">
+            <table id="businesses-table">
+              <thead>
+                <tr>
+                  <th>Business</th>
+                  <th>Category</th>
+                  <th>Contact</th>
+                  <th>Rating</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        
+        <div class="tab-content" id="forum-tab">
+          <div class="tab-header">
+            <h3>Forum Management</h3>
+            <div class="tab-filters">
+              <button class="filter-btn active" data-status="all">
+                All Posts
+              </button>
+              <button class="filter-btn" data-status="flagged">Flagged</button>
+              <button class="filter-btn" data-status="approved">
+                Approved
+              </button>
+              <button class="filter-btn" data-status="hidden">Hidden</button>
+            </div>
+          </div>
+          <div class="admin-table">
+            <table id="forum-table">
+              <thead>
+                <tr>
+                  <th>Post</th>
+                  <th>Author</th>
+                  <th>Category</th>
+                  <th>Replies</th>
+                  <th>Votes</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        
+        <div class="tab-content" id="users-tab">
+          <div class="tab-header">
+            <h3>User Management</h3>
+            <div class="search-bar">
+              <input
+                type="text"
+                id="user-search"
+                placeholder="Search users..."
+              />
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
+          <div class="admin-table">
+            <table id="users-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Email</th>
+                  <th>Join Date</th>
+                  <th>Points</th>
+                  <th>Level</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-content" id="analytics-tab">
+          <div class="analytics-grid">
+            <div class="chart-container">
+              <h3>User Growth</h3>
+              <div class="chart-placeholder">
+                <i class="fas fa-chart-line"></i>
+                <p>User registration trends over time</p>
+              </div>
+            </div>
+            <div class="chart-container">
+              <h3>Event Participation</h3>
+              <div class="chart-placeholder">
+                <i class="fas fa-chart-bar"></i>
+                <p>Event attendance and engagement metrics</p>
+              </div>
+            </div>
+            <div class="chart-container">
+              <h3>Forum Activity</h3>
+              <div class="chart-placeholder">
+                <i class="fas fa-chart-pie"></i>
+                <p>Discussion categories and post frequency</p>
+              </div>
+            </div>
+            <div class="chart-container">
+              <h3>Action Tracker Usage</h3>
+              <div class="chart-placeholder">
+                <i class="fas fa-chart-area"></i>
+                <p>Sustainability actions logged by users</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+                alt="SDG 11"
+              />
+              <span>EcoCity Initiative</span>
+            </div>
+            <p>
+              Building sustainable cities and communities through collective
+              action and innovation.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="Events.html">Events</a></li>
+              <li><a href="business-directory.html">Directory</a></li>
+              <li><a href="action-tracker.html">Tracker</a></li>
+              <li><a href="waste-management.html">Waste Hub</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="discussion-forum.html">Forum</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#privacy">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 EcoCity Initiative. All rights reserved. | Supporting UN
+            SDG 11
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="/Web-a-thon-25/Firebase/auth.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script>
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        
+        auth.updateNavigation();
+
+       
+        if (!auth.isAuthenticated()) {
+          window.location.href = "auth/login.html";
+          return;
+        }
+
+        const currentUser = auth.getCurrentUser();
+        if (!currentUser) {
+          window.location.href = "index.html";
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>
