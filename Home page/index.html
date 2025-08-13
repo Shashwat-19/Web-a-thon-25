@@ -1,103 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Green City Connect</title>
-    <link rel="stylesheet" href='styles.css'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Londrina+Outline&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoCity </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
     <nav class="navbar">
-        <ul>
-            <li><a href="/">Events</a></li>
-            <li><a href="collaborators.html">Collaborators</a></li>
-            <li><a href="calender.htmml">Calender</a></li>
-            <li><a href="summaries.html">Summaries</a></li>
-            <li><a href="impact.html">Impact</a></li>
-            <li><a href="guide.html">Guide</a></li>
+      <div class="nav-container">
+        <div class="nav-logo">
+          
+          <span class="logo-text">EcoCity</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="eco-events.html" class="nav-link">Events</a>
+          <a href="business-directory.html" class="nav-link">Collaborate</a>
+          <a href="action-tracker.html" class="nav-link">Tracker</a>
+          <a href="waste-management.html" class="nav-link">Waste Hub</a>
+          <a href="discussion-forum.html" class="nav-link">Discuss</a>
+          <a href="admin-dashboard.html" class="nav-link admin-link">Admin</a>
 
-        </ul>
+          <!-- Auth Navigation -->
+          <div class="auth-nav-buttons">
+            <a href="auth/login.html" class="nav-link auth-link">Login</a>
+            <a href="auth/register.html" class="btn btn-primary nav-btn"
+              >Sign Up</a
+            >
+          </div>
+
+          <!-- User Menu (hidden by default) -->
+          <div class="user-menu" style="display: none">
+            <div class="user-dropdown">
+              <button class="user-button">
+                <i class="fas fa-user-circle"></i>
+                <span class="user-name">User</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a href="action-tracker.html" class="dropdown-item">
+                  <i class="fas fa-trophy"></i>
+                  My Profile
+                </a>
+                <a href="#settings" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <button
+                  onclick="auth.logout()"
+                  class="dropdown-item logout-btn"
+                >
+                  <i class="fas fa-sign-out-alt"></i>
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
     </nav>
 
-    <header class="hero-section">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
         <div class="hero-content">
-            <h1>Green City Connect</h1>
-            <p>A Path to a Greener, Cleaner and Sustainable Future</p>
-            
+          <div class="sdg-badge">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+              alt="SDG 11"
+            />
+            <span>Sustainable Development Goal 11</span>
+          </div>
+          <h1 class="hero-title">
+            Make Cities and Human Settlements Inclusive, Safe and Sustainable
+          </h1>
+          <p class="hero-description">
+            Join our community-driven initiative to create sustainable urban
+            environments. Track your impact, participate in eco-events, and
+            connect with like-minded citizens working towards a greener future.
+          </p>
+          <div class="hero-buttons">
+            <a href="action-tracker.html" class="btn btn-primary"
+              >Start Tracking Actions</a
+            >
+            <a href="eco-events.html" class="btn btn-secondary">Join Events</a>
+          </div>
         </div>
-    </header>
-
-    <section class="goals-section">
-            <h1>United Nations Sustainable Development Goals</h1>
-
-
-    <div class="sdg-gallery">
-        <img src="assets/imgs/01.jpg" alt="SDG 1 - No Poverty">
-        <img src="assets/imgs/02.jpg" alt="SDG 2 - Zero Hunger">
-        <img src="assets/imgs/03.jpg" alt="SDG 3 - Good Health and Well-being">
-        <img src="assets/imgs/04.jpg" alt="SDG 4 - Quality Education">
-        <img src="assets/imgs/05.jpg" alt="SDG 5 - Gender Equality">
-        <img src="assets/imgs/06.jpg" alt="SDG 6 - Clean Water and Sanitation">
-        <img src="assets/imgs/07.jpg" alt="SDG 7 - Affordable and Clean Energy">
-        <img src="assets/imgs/08.jpg" alt="SDG 8 - Decent Work and Economic Growth">
-        <img src="assets/imgs/09.jpg" alt="SDG 9 - Industry, Innovation and Infrastructure">
-        <img src="assets/imgs/10.jpg" alt="SDG 10 - Reduced Inequalities">
-        <img src="assets/imgs/11.jpg" alt="SDG 11 - Sustainable Cities and Communities">
-        <img src="assets/imgs/12.jpg" alt="SDG 12 - Responsible Consumption and Production">
-        <img src="assets/imgs/13.jpg" alt="SDG 13 - Climate Action">
-        <img src="assets/imgs/14.jpg" alt="SDG 14 - Life Below Water">
-        <img src="assets/imgs/15.jpg" alt="SDG 15 - Life on Land">
-        <img src="assets/imgs/16.jpg" alt="SDG 16 - Peace, Justice and Strong Institutions">
-        <img src="assets/imgs/17.jpg" alt="SDG 17 - Partnerships for the Goals">
-    </div>
-
-    
-
+        <div class="hero-image">
+          <img
+            src="assets/imgs/smool.jpeg"
+            alt="Sustainable City"
+            class="hero-img"
+          />
+          <div class="hero-overlay">
+            <div class="floating-elements">
+              <i class="fas fa-leaf"></i>
+              <i class="fas fa-recycle"></i>
+              <i class="fas fa-solar-panel"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="info-section">
-        <div class="info-container">
-            <div class="info-box">
-                <h2>Upcoming Events</h2>
-                <p> Looking to contribute to sustainablility? Explore all the events to participate and connect.</p>
-                <a href="collaborators.html" class="info-link">Go to Attendance</a>
+    <!-- Statistics Section -->
+    <section class="statistics">
+      <div class="container">
+        <h2 class="section-title">Urban Sustainability Impact</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-bolt"></i>
             </div>
-            <div class="info-box">
-                <h2>Collaborators</h2>
-                <p>Explore all the startups and enthusiasts you would want to collaborate for events.</p>
-                <a href="collaborators.html" class="info-link">Go to Attendance</a>
+            <div class="stat-content">
+              <h3 class="stat-number" data-target="78">0</h3>
+              <p class="stat-label">% Energy Efficiency Improvement</p>
+              <span class="stat-trend positive">+12% this year</span>
             </div>
-            <div class="info-box">
-                <h2>Calender</h2>
-                <p>Know the events and drives happening around you.</p>
-                <a href="calender.html" class="info-link">View Profile</a>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-recycle"></i>
             </div>
-            <div class="info-box">
-                <h2>Overview</h2>
-                <p>Check for all the prior initiatives and their outcome.</p>
-                <a href="summaries.html" class="info-link">View Schedule</a>
+            <div class="stat-content">
+              <h3 class="stat-number" data-target="65">0</h3>
+              <p class="stat-label">% Waste Recycled</p>
+              <span class="stat-trend positive">+8% this year</span>
             </div>
-            <div class="info-box">
-                <h2>Impact</h2>
-                <p>Have a look at the impacts and solutions we have created for sustainable future</p>
-                <a href="impact.html" class="info-link">Go to Assignments</a>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-wind"></i>
             </div>
-            <div class="info-box">
-                <h2>User Guide</h2>
-                <p>Wondering what to do with the waste you're holding? Check for a sustainable guide for best disposal techniques.</p>
-                <a href="guide.html" class="info-link">Go to Assignments</a>
-            </div>            
+            <div class="stat-content">
+              <h3 class="stat-number" data-target="42">0</h3>
+              <p class="stat-label">Air Quality Index Improvement</p>
+              <span class="stat-trend positive">+15% this year</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number" data-target="1247">0</h3>
+              <p class="stat-label">Active Community Members</p>
+              <span class="stat-trend positive">+156 this month</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Green_City_Connect. All rights reserved.</p>
+    <!-- Quick Links Section -->
+    <section class="quick-links">
+      <div class="container">
+        <h2 class="section-title">Explore Our Platform</h2>
+        <div class="links-grid">
+          <a href="eco-events.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>Eco-Events & Campaigns</h3>
+            <p>
+              Join tree plantation drives, clean-up campaigns, and recycling
+              workshops in your community.
+            </p>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="business-directory.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-store"></i>
+            </div>
+            <h3>Green Business Directory</h3>
+            <p>
+              Discover local eco-friendly businesses and support sustainable
+              commerce in your area.
+            </p>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="action-tracker.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3>Citizen Action Tracker</h3>
+            <p>
+              Log your sustainability actions, earn points, and compete on the
+              community leaderboard.
+            </p>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="waste-management.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Waste Management Hub</h3>
+            <p>
+              Find recycling centers, learn proper waste segregation, and
+              schedule bulk waste pickup.
+            </p>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="discussion-forum.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>Discussion Forum</h3>
+            <p>
+              Share ideas, discuss solutions, and collaborate with fellow
+              citizens on sustainability topics.
+            </p>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="admin-dashboard.html" class="link-card admin-card">
+            <div class="link-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3>Admin Dashboard</h3>
+            <p>
+              Manage events, approve businesses, moderate discussions, and view
+              platform analytics.
+            </p>
+            <span class="link-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Make a Difference?</h2>
+          <p>
+            Join thousands of citizens working together to create sustainable
+            urban communities. Every action counts towards achieving SDG 11.
+          </p>
+          <a href="action-tracker.html" class="btn btn-primary"
+            >Get Started Today</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF6B35'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3C/svg%3E"
+                alt="SDG 11"
+              />
+              <span>EcoCity Initiative</span>
+            </div>
+            <p>
+              Building sustainable cities and communities through collective
+              action and innovation.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="eco-events.html">Events</a></li>
+              <li><a href="business-directory.html">Directory</a></li>
+              <li><a href="action-tracker.html">Tracker</a></li>
+              <li><a href="waste-management.html">Waste Hub</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="discussion-forum.html">Forum</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#privacy">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 EcoCity Initiative. All rights reserved. | Supporting UN
+            SDG 11
+          </p>
+        </div>
+      </div>
     </footer>
-</body>
+
+    <script src="script.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      // Initialize authentication on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Update navigation based on auth state
+        auth.updateNavigation();
+
+        // Setup user dropdown
+        const userButton = document.querySelector(".user-button");
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+
+        if (userButton && dropdownMenu) {
+          userButton.addEventListener("click", function () {
+            dropdownMenu.classList.toggle("show");
+          });
+
+          // Close dropdown when clicking outside
+          document.addEventListener("click", function (e) {
+            if (!userButton.contains(e.target)) {
+              dropdownMenu.classList.remove("show");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
