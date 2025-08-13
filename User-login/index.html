@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome.!</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./Firebase/auth.js"></script>
+    <link rel="shortcut icon" href="./Assets/icon.png" type="image/x-icon">
+  </head>
+  <body>
+    <h1>Green City Connect- A Digital Platform for Urban Sustainability</h1>
+    <div class="s-wave-bg">
+        <svg viewBox="0 0 1440 320">
+          <path fill="#2196f3" fill-opacity="1"
+            d="M0,160 C360,240 1080,80 1440,160 L1440,320 L0,320 Z"></path>
+        </svg>
+    </div>
+    <div class="container">
+      <div class="form-container">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="openTab('login')">
+            Login
+          </button>
+          <button class="tab-btn" onclick="openTab('register')">
+            Register
+          </button>
+        </div>
+
+        <div id="login" class="tab-content active">
+          <form id="login-form">
+            <div
+              id="signInMessage"
+              class="messageDiv"
+              style="display: none"
+            ></div>
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input
+                type="email"
+                id="login-email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input
+                type="password"
+                id="login-password"
+                class="form-control"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <div class="remember-forgot">
+              <div class="checkbox-container">
+                <input type="checkbox" id="remember" />
+                <label for="remember">Remember me</label>
+              </div>
+              <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+          </form>
+          <div class="form-footer">
+            <p>
+              Don't have an account?
+              <a href="#" onclick="openTab('register')">Register here</a>
+            </p>
+          </div>
+        </div>
+
+        <div id="register" class="tab-content">
+          <form id="register-form">
+            <div
+              id="signUpMessage"
+              class="messageDiv"
+              style="display: none"
+            ></div>
+            <div class="form-group">
+              <label for="register-name">Full Name</label>
+              <!-- FIXED ID -->
+              <input
+                type="text"
+                id="register-name"
+                class="form-control"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="register-email">Email</label>
+              <!-- FIXED ID -->
+              <input
+                type="email"
+                id="register-email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password</label>
+             
+              <input
+                type="password"
+                id="register-password"
+                class="form-control"
+                placeholder="Create a password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="register-confirm-password">Confirm Password</label>
+            
+              <input
+                type="password"
+                id="register-confirm-password"
+                class="form-control"
+                placeholder="Confirm your password"
+                required
+              />
+            </div>
+            <div class="checkbox-container" style="margin-bottom: 20px">
+              <input type="checkbox" id="terms" required />
+              <label for="terms">I agree to the Terms & Conditions</label>
+            </div>
+            <button type="submit" class="reg-btn">Register</button>
+          </form>
+          <div class="form-footer">
+            <p>
+              Already have an account?
+              <a href="#" onclick="openTab('login')">Login here</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Green City Connect. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
