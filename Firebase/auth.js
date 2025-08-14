@@ -15,7 +15,7 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-console.log("🚀 Auth script loaded successfully");
+console.log("Auth script loaded successfully");
 
 const firebaseConfig = {
     apiKey: "AIzaSyAgBL9AsBS8DGb7MmLW6vETJuFRmWMzPo4",
@@ -34,22 +34,18 @@ const db = getFirestore(app);
 
 console.log("🔥 Firebase initialized successfully");
 
-// Debug function to check file structure
 function debugPaths() {
   console.log("📁 Current page:", window.location.href);
   console.log("📁 Current pathname:", window.location.pathname);
   console.log("📁 Current directory:", window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')));
 }
 
-// Enhanced message function
 function showMessage(message, type = 'info') {
   console.log(`📢 ${type.toUpperCase()}: ${message}`);
   
-  // Remove existing messages
   const existingMessages = document.querySelectorAll('.debug-message');
   existingMessages.forEach(msg => msg.remove());
   
-  // Create new message
   const messageDiv = document.createElement('div');
   messageDiv.className = 'debug-message';
   messageDiv.innerHTML = `
@@ -76,27 +72,26 @@ function showMessage(message, type = 'info') {
   setTimeout(() => messageDiv.remove(), 5000);
 }
 
-// Session management with debug logs
 function startSession() {
   console.log("🎯 Starting session...");
   try {
     const currentTime = new Date().getTime();
     localStorage.setItem('loggedIn', 'true');
     localStorage.setItem('loginTime', currentTime.toString());
-    console.log("✅ Session started successfully:", currentTime);
+    console.log("Session started successfully:", currentTime);
   } catch (error) {
-    console.error("❌ Error starting session:", error);
+    console.error("Error starting session:", error);
   }
 }
 
 function clearSession() {
-  console.log("🧹 Clearing session...");
+  console.log("Clearing session...");
   try {
     localStorage.removeItem('loggedIn');
     localStorage.removeItem('loginTime');
-    console.log("✅ Session cleared successfully");
+    console.log("Session cleared successfully");
   } catch (error) {
-    console.error("❌ Error clearing session:", error);
+    console.error("Error clearing session:", error);
   }
 }
 
@@ -106,10 +101,10 @@ function isSessionValid() {
     const isLoggedIn = localStorage.getItem('loggedIn');
     const loginTime = localStorage.getItem('loginTime');
     
-    console.log("📊 Session data:", { isLoggedIn, loginTime });
+    console.log("Session data:", { isLoggedIn, loginTime });
     
     if (isLoggedIn !== 'true' || !loginTime) {
-      console.log("❌ Session invalid: missing data");
+      console.log("Session invalid: missing data");
       return false;
     }
     
@@ -120,111 +115,106 @@ function isSessionValid() {
     console.log("⏰ Session age:", sessionAge, "Max age:", thirtyTwoHours);
     
     const isValid = sessionAge < thirtyTwoHours;
-    console.log(isValid ? "✅ Session valid" : "❌ Session expired");
+    console.log(isValid ? "Session valid" : "Session expired");
     return isValid;
   } catch (error) {
-    console.error("❌ Error checking session validity:", error);
+    console.error("Error checking session validity:", error);
     return false;
   }
 }
 
-// Navigation with debug and multiple path attempts
 function redirectToHome() {
-  console.log("🏠 Attempting to redirect to homepage...");
+  console.log("Attempting to redirect to homepage...");
   debugPaths();
   
-  // Try multiple possible paths based on your file structure
+ 
   const possiblePaths = [
-    "Homepage/index.html",      // Original attempt
-    "Home page/index.html",     // With space
-    "home/index.html",          // Lowercase
-    "dashboard.html",           // Alternative
-    "main.html"                 // Alternative
+    "Homepage/index.html",      
+    "Home page/index.html",    
+    "home/index.html",         
+    "dashboard.html",           
+    "main.html"                 
   ];
   
-  // Try the first path and provide debug info
   const targetPath = possiblePaths[0];
-  console.log("🎯 Redirecting to:", targetPath);
+  console.log("Redirecting to:", targetPath);
   
-  // Add a delay to see if the issue is timing-related
   setTimeout(() => {
     try {
       window.location.href = targetPath;
-      console.log("✅ Redirect initiated");
+      console.log("Redirect initiated");
     } catch (error) {
-      console.error("❌ Redirect failed:", error);
+      console.error("Redirect failed:", error);
       showMessage("Redirect failed. Check console for details.", 'error');
     }
   }, 1000);
 }
 
 function redirectToLogin() {
-  console.log("🔑 Redirecting to login...");
+  console.log("Redirecting to login...");
   debugPaths();
   
   setTimeout(() => {
     try {
       window.location.href = "index.html";
-      console.log("✅ Login redirect initiated");
+      console.log("Login redirect initiated");
     } catch (error) {
-      console.error("❌ Login redirect failed:", error);
+      console.error("Login redirect failed:", error);
     }
   }, 1000);
 }
 
-// Page protection with detailed logging
 function checkSessionAndRedirect() {
-  console.log("🛡️ Checking session for redirect...");
+  console.log("Checking session for redirect...");
   debugPaths();
   
   if (isSessionValid()) {
-    console.log("✅ Valid session found, redirecting to home");
+    console.log("Valid session found, redirecting to home");
     showMessage('Valid session found! Redirecting to homepage...', 'success');
     redirectToHome();
   } else {
-    console.log("❌ No valid session, staying on login page");
+    console.log("No valid session, staying on login page");
     clearSession();
   }
 }
 
 function protectPage() {
-  console.log("🛡️ Protecting page...");
+  console.log("Protecting page...");
   debugPaths();
   
   if (!isSessionValid()) {
-    console.log("❌ Invalid session, redirecting to login");
+    console.log("Invalid session, redirecting to login");
     showMessage('Session expired. Redirecting to login...', 'error');
     clearSession();
     redirectToLogin();
     return false;
   }
-  console.log("✅ Page access granted");
+  console.log("Page access granted");
   return true;
 }
 
-// Enhanced form handlers with detailed logging
 function initializeLoginForm() {
-  console.log("🔑 Initializing login form...");
+  console.log("Initializing login form...");
   const loginForm = document.querySelector("#login-form");
   
   if (!loginForm) {
-    console.log("❌ Login form not found");
+    console.log("Login form not found");
     return;
   }
   
-  console.log("✅ Login form found");
+  console.log("Login form found");
 
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("🚀 Login form submitted");
+    console.log("Login form submitted");
     
     const email = document.getElementById("login-email").value.trim();
     const password = document.getElementById("login-password").value;
     
-    console.log("📧 Login attempt for email:", email);
+    console.log("Login attempt for email:", email);
     
     if (!email || !password) {
-      console.log("❌ Missing email or password");
+      console.log("Missing email or password");
       showMessage("Please fill in all fields", 'error');
       return;
     }
@@ -235,24 +225,24 @@ function initializeLoginForm() {
     submitBtn.disabled = true;
     
     try {
-      console.log("🔐 Attempting Firebase login...");
+      console.log("Attempting Firebase login...");
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       
-      console.log("✅ Firebase login successful:", user.uid);
-      console.log("📧 User email:", user.email);
+      console.log("Firebase login successful:", user.uid);
+      console.log("User email:", user.email);
       
       startSession();
       showMessage(`Login successful! Redirecting...`, 'success');
       
-      console.log("🏠 About to redirect to homepage...");
+      console.log("About to redirect to homepage...");
       setTimeout(() => {
-        console.log("🚀 Executing redirect now...");
+        console.log("Executing redirect now...");
         redirectToHome();
       }, 2000);
       
     } catch (error) {
-      console.error("❌ Login error:", error);
+      console.error("Login error:", error);
       console.error("Error code:", error.code);
       console.error("Error message:", error.message);
       
@@ -278,19 +268,19 @@ function initializeLoginForm() {
 }
 
 function initializeRegisterForm() {
-  console.log("📝 Initializing register form...");
+  console.log("Initializing register form...");
   const registerForm = document.querySelector("#register-form");
   
   if (!registerForm) {
-    console.log("❌ Register form not found");
+    console.log("Register form not found");
     return;
   }
   
-  console.log("✅ Register form found");
+  console.log("Register form found");
 
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("🚀 Register form submitted");
+    console.log("Register form submitted");
     
     const fullName = document.getElementById("register-name").value.trim();
     const email = document.getElementById("register-email").value.trim();
@@ -298,16 +288,16 @@ function initializeRegisterForm() {
     const confirmPassword = document.getElementById("register-confirm-password").value;
     const termsAccepted = document.getElementById("terms").checked;
     
-    console.log("📝 Registration data:", { fullName, email, termsAccepted });
+    console.log("Registration data:", { fullName, email, termsAccepted });
     
     if (!termsAccepted) {
-      console.log("❌ Terms not accepted");
+      console.log("Terms not accepted");
       showMessage("Please accept the Terms & Conditions.", 'error');
       return;
     }
     
     if (password !== confirmPassword) {
-      console.log("❌ Passwords don't match");
+      console.log("Passwords don't match");
       showMessage("Passwords do not match.", 'error');
       return;
     }
@@ -318,11 +308,11 @@ function initializeRegisterForm() {
     submitBtn.disabled = true;
     
     try {
-      console.log("🔐 Attempting Firebase registration...");
+      console.log("Attempting Firebase registration...");
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       
-      console.log("✅ Firebase registration successful:", user.uid);
+      console.log("Firebase registration successful:", user.uid);
       
       const userData = {
         fullName: fullName,
@@ -330,21 +320,21 @@ function initializeRegisterForm() {
         createdAt: new Date().toISOString()
       };
       
-      console.log("💾 Saving user data to Firestore...");
+      console.log("Saving user data to Firestore...");
       await setDoc(doc(db, "users", user.uid), userData);
-      console.log("✅ User data saved to Firestore");
+      console.log("User data saved to Firestore");
       
       startSession();
       showMessage("Account created successfully! Redirecting...", 'success');
       
-      console.log("🏠 About to redirect to homepage...");
+      console.log("About to redirect to homepage...");
       setTimeout(() => {
-        console.log("🚀 Executing redirect now...");
+        console.log("Executing redirect now...");
         redirectToHome();
       }, 2000);
       
     } catch (error) {
-      console.error("❌ Registration error:", error);
+      console.error("Registration error:", error);
       console.error("Error code:", error.code);
       console.error("Error message:", error.message);
       
@@ -367,16 +357,14 @@ function initializeRegisterForm() {
   });
 }
 
-// Auth state listener
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    console.log("🔥 Auth state: User signed in:", user.email);
+    console.log(" Auth state: User signed in:", user.email);
   } else {
-    console.log("🔥 Auth state: User signed out");
+    console.log("Auth state: User signed out");
   }
 });
 
-// Tab functionality
 window.openTab = function(tabName) {
   console.log("🗂️ Opening tab:", tabName);
   const tabContents = document.querySelectorAll(".tab-content");
@@ -410,40 +398,39 @@ window.openTab = function(tabName) {
   }, 350);
 };
 
-// Logout function
 window.logout = async function() {
-  console.log("🚪 Logging out...");
+  console.log(" Logging out...");
   try {
     await signOut(auth);
     clearSession();
     showMessage("Logged out successfully!", 'success');
     setTimeout(redirectToLogin, 1000);
   } catch (error) {
-    console.error("❌ Logout error:", error);
+    console.error("Logout error:", error);
     clearSession();
     redirectToLogin();
   }
 };
 
-// Page initialization
+
 function initializePageProtection() {
   const currentPath = window.location.pathname.toLowerCase();
-  console.log("🛡️ Initializing page protection for:", currentPath);
+  console.log(" Initializing page protection for:", currentPath);
   
   if (currentPath.includes('index.html') || currentPath === '/' || currentPath.endsWith('/')) {
-    console.log("📍 On login page - checking for existing session");
+    console.log(" On login page - checking for existing session");
     document.addEventListener("DOMContentLoaded", checkSessionAndRedirect);
   }
   
   if (currentPath.includes('homepage') || currentPath.includes('home page') || currentPath.includes('home')) {
-    console.log("📍 On protected page - verifying access");
+    console.log(" On protected page - verifying access");
     document.addEventListener("DOMContentLoaded", protectPage);
   }
 }
 
-// Initialize everything
+
 document.addEventListener("DOMContentLoaded", function() {
-  console.log("🎯 DOM Content Loaded - Initializing auth system");
+  console.log(" DOM Content Loaded - Initializing auth system");
   debugPaths();
   
   initializeLoginForm();
@@ -456,7 +443,7 @@ document.addEventListener("DOMContentLoaded", function() {
     activeTab.style.transform = "translateY(0)";
   }
   
-  console.log("✅ Auth system initialization complete");
+  console.log(" Auth system initialization complete");
 });
 
-console.log("🎉 Auth script fully loaded and ready");
+console.log(" Auth script fully loaded and ready");
