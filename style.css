@@ -1,18 +1,26 @@
-*{
-    background-attachment: fixed;
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    color: rgb(40, 3, 3);
-    text-align: center;
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Times New Roman", Times, serif;
 }
 
-h1{
-    color : #E8FFD7;
+body {
+    background-attachment: fixed;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #bbbbbb;
+    color: rgb(40, 3, 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    background: none; 
+    color: #E8FFD7;
     text-align: center;
     font-size: 2.5em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -21,15 +29,8 @@ h1{
     left: 50%;
     transform: translateX(-50%);
     padding-top: 2rem;
+    z-index: 10;
 }
-  
-  body {
-    background-color: #bbbbbb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
 
 .s-wave-bg {
     position: fixed;
@@ -38,44 +39,55 @@ h1{
     z-index: -1;
     width: 100%;
     height: 100vh;
-    background-color: #f8f8f8;
+    background-color: transparent; 
     overflow: hidden;
 }
-  
+
 .s-wave-bg svg {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: auto;
-    transform: scaleY(2.5) translateY(20px); 
+    transform: scaleY(2.5) translateY(20px);
     transform-origin: bottom;
 }
-  
-  .container {
-    background-color: #f8f8f8;
+
+
+.container {
+    background-color: rgba(248, 248, 248, 0.95); 
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     width: 500px;
     max-width: 95%;
     display: flex;
     overflow: hidden;
     transition: all 0.3s ease;
-  }
-  
-  .container:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.container:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     transform: translateY(-5px);
-  }
-  
-  .tabs {
+}
+
+.form-container {
+    background: none;
+    width: 100%;
+    padding: 40px;
+    border-radius: 32px;
+}
+
+/* Tabs */
+.tabs {
+    background: none;
     display: flex;
     width: 100%;
     margin-bottom: 20px;
-  }
-  
-  .tab-btn {
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.1);
     flex: 1;
-    background: none;
     border: none;
     padding: 15px;
     font-size: 16px;
@@ -85,15 +97,15 @@ h1{
     color: #1e3a8a;
     position: relative;
     overflow: hidden;
-  }
-  
-  .tab-btn.active {
+}
+
+.tab-btn.active {
     background-color: rgb(94, 147, 108);
     color: #E8FFD7;
     border-radius: 20px;
-  }
-  
-  .tab-btn:after {
+}
+
+.tab-btn:after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -103,113 +115,70 @@ h1{
     background-color: rgb(94, 147, 108);
     transition: all 0.3s ease;
     transform: translateX(-50%);
-  }
-  
-  .tab-btn:not(.active):hover:after {
+}
+
+.tab-btn:not(.active):hover {
+    background-color: rgba(94, 147, 108, 0.1);
+}
+
+.tab-btn:not(.active):hover:after {
     width: 50%;
-  }
-  
-  .form-container {
-    width: 100%;
-    padding: 40px;
-    border-radius: 32px;
-  }
-  
-  .tab-content {
+}
+
+.tab-content {
+    background: none;
     display: none;
     margin-bottom: 2em;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  
-  .tab-content.active {
+}
+
+.tab-content.active {
     display: block;
     margin-bottom: 2em;
     opacity: 1;
     transform: translateY(0);
-  }
-  
-  .form-group {
+}
+
+.form-group {
+    background: none;
     margin-bottom: 20px;
     transition: all 0.3s ease;
-  }
-  
-  .form-group:hover {
+}
+
+.form-group:hover {
     transform: translateX(5px);
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
+    background: none;
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
     color: #1e3a8a;
     transition: all 0.3s ease;
-  }
-  
-  .form-control {
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.9);
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     transition: all 0.3s ease;
-  }
-  
-  .form-control:focus {
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.95);
     outline: none;
     border-color: #1e3a8a;
     box-shadow: 0 0 5px rgba(30, 58, 138, 0.3);
     transform: scale(1.01);
-  }
-  
-  .login-btn {
-    background-color:rgb(94, 147, 108);
-    border: none;
-    padding: 12px;
-    width: 100%;
-    border-radius: 32px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    color: #E8FFD7;
-  }
-  
-  .login-btn:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    transition: all 0.6s ease;
-  }
-  
-  .login-btn:hover {
-    background-color: rgb(94, 147, 108);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgb(94, 147, 108);
-  }
-  
-  .login-btn:hover:before {
-    left: 100%;
-  }
-  
-  .login-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgb(94, 147, 108);
-  }
-  
-  .reg-btn {
+}
+
+.login-btn, .reg-btn {
     background-color: rgb(94, 147, 108);
     border: none;
     padding: 12px;
@@ -222,9 +191,9 @@ h1{
     position: relative;
     overflow: hidden;
     color: #E8FFD7;
-  }
-  
-  .reg-btn:before {
+}
+
+.login-btn:before, .reg-btn:before {
     content: "";
     position: absolute;
     top: 0;
@@ -232,44 +201,46 @@ h1{
     width: 100%;
     height: 100%;
     background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
     );
     transition: all 0.6s ease;
-  }
-  
-  .reg-btn:hover {
-    background-color: rgb(94, 147, 108);
+}
+
+.login-btn:hover, .reg-btn:hover {
+    background-color: rgb(74, 127, 88);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(45, 45, 200, 0.3);
-  }
-  
-  .reg-btn:hover:before {
+    box-shadow: 0 5px 15px rgba(94, 147, 108, 0.4);
+}
+
+.login-btn:hover:before, .reg-btn:hover:before {
     left: 100%;
-  }
-  
-  .reg-btn:active {
+}
+
+.login-btn:active, .reg-btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(45, 45, 200, 0.3);
-  }
-  
-  .form-footer {
+    box-shadow: 0 2px 5px rgba(94, 147, 108, 0.3);
+}
+
+.form-footer {
+    background: none;
     text-align: center;
     margin-top: 20px;
     color: #666;
     transition: all 0.3s ease;
-  }
-  
-  .form-footer a {
+}
+
+.form-footer a {
+    background: none;
     color: #1e3a8a;
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
-  }
-  
-  .form-footer a:after {
+}
+
+.form-footer a:after {
     content: "";
     position: absolute;
     width: 0;
@@ -278,40 +249,49 @@ h1{
     left: 0;
     background-color: #1e3a8a;
     transition: all 0.3s ease;
-  }
-  
-  .form-footer a:hover:after {
+}
+
+.form-footer a:hover:after {
     width: 100%;
-  }
-  
-  .remember-forgot {
+}
+
+/* Remember/Forgot section */
+.remember-forgot {
+    background: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     transition: all 0.3s ease;
-  }
-  
-  .checkbox-container {
+}
+
+.checkbox-container {
+    background: none;
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
-  }
-  
-  .checkbox-container input {
+}
+
+.checkbox-container input {
+    background: none;
     margin-right: 8px;
     transition: all 0.3s ease;
-  }
-  
-  .forgot-password {
+}
+
+.checkbox-container label {
+    background: none;
+}
+
+.forgot-password {
+    background: none;
     color: #1e3a8a;
     text-decoration: none;
     font-size: 14px;
     transition: all 0.3s ease;
     position: relative;
-  }
-  
-  .forgot-password:after {
+}
+
+.forgot-password:after {
     content: "";
     position: absolute;
     width: 0;
@@ -320,13 +300,14 @@ h1{
     left: 0;
     background-color: #1e3a8a;
     transition: all 0.3s ease;
-  }
-  
-  .forgot-password:hover:after {
+}
+
+.forgot-password:hover:after {
     width: 100%;
-  }
-  
-  .messageDiv {
+}
+
+/* Message div */
+.messageDiv {
     background-color: blueviolet;
     color: #E8FFD7;
     padding: 10px 20px;
@@ -335,11 +316,10 @@ h1{
     font-size: 1rem;
     opacity: 0;
     animation: fadeOut 7s forwards;
-  }
+}
 
-footer{
-    
-    margin: 0%;
+/* Footer */
+footer {
     background: rgba(0, 0, 0, 0.5);
     color: #E8FFD7;
     text-align: center;
@@ -347,4 +327,13 @@ footer{
     bottom: 0;
     left: 0;
     right: 0;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Add missing animation */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
 }
